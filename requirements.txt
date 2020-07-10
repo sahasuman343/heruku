@@ -4,6 +4,6 @@ opencv_python==4.2.0.34
 numpy==1.18.4
 matplotlib==3.2.1
 pandas==1.0.3
-tensorboard==2.1.0
-tensorflow==2.1.0
+tensorboard==1.15.0
+tensorflow==1.15.0
 Werkzeug==1.0.1
