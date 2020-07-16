@@ -8,9 +8,9 @@ import numpy as np
 
 # Keras
 import tensorflow as tf
-from keras.models import load_model
-from keras.preprocessing import image
-from keras.models import model_from_json
+from tensorflow.keras.models import load_model
+from tensorflow.keras.preprocessing import image
+from tensorflow.keras.models import model_from_json
 
 # Flask utils
 from flask import Flask, redirect, url_for, request, render_template
