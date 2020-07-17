@@ -11,7 +11,12 @@ import tensorflow as tf
 from tensorflow.keras.models import load_model
 from tensorflow.keras.preprocessing import image
 from tensorflow.keras.models import model_from_json
-
+'''
+from tensorflow.keras.backend import set_session
+#tf_config = some_custom_config
+sess = tf.Session()
+graph = tf.get_default_graph()
+'''
 # Flask utils
 from flask import Flask, redirect, url_for, request, render_template
 from werkzeug.utils import secure_filename
@@ -39,10 +44,9 @@ def model_predict(img_path, model):
     img = image.load_img(img_path, target_size=(156,156))
     x = image.img_to_array(img)
     x = np.expand_dims(x, axis=0)
-
-
     preds = model.predict(x)
     return preds
+        
 
 
 @app.route('/', methods=['GET'])
@@ -64,11 +68,13 @@ def upload():
         f.save(file_path)
 
         # Make prediction
+       
         preds = model_predict(file_path, model)
         cl=np.argmax(preds)
         result = dance[cl]           
         return result
     return None
+
 
 
 if __name__ == '__main__':
